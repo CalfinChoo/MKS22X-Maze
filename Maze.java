@@ -5,6 +5,7 @@ public class Maze{
   //public String maze = "";
   private char[][] maze;
   private boolean animate;
+  private int[][] moves = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
   /*Constructor loads a maze text file, and sets animate to false by default.
 
@@ -111,7 +112,7 @@ public class Maze{
         All visited spots that were not part of the solution are changed to '.'
         All visited spots that are part of the solution are changed to '@'
     */
-    private int solve(int row, int col){ //you can add more parameters since this is private
+    private int solve(int row, int col, int steps){ //you can add more parameters since this is private
 
         //automatic animation! You are welcome.
         if(animate){
@@ -121,6 +122,16 @@ public class Maze{
         }
 
         //COMPLETE SOLVE
+        if (maze[row][col] == 'E') return steps;
+        maze[row][col] == '@';
+        for (int i = 0; i < moves.length; i++) {
+          int r = row + moves[i][0];
+          int c = col + moves[i][1];
+          if (r >= 0 && r < maze.length && c >= 0 && c < maze[r].length) {
+            int stepUpdate = solve(r, c, steps + 1);
+            if (stepUpdate > steps) steps = stepUpdate;
+          }
+        }
         return -1; //so it compiles
     }
 
