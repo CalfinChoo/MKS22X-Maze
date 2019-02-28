@@ -73,7 +73,15 @@ public class Maze{
     */
     public String toString(){
       String s = "";
-      for (int y = 0; x < char)
+      for (int y = 0; y < maze.length; y++) {
+        for (int x = 0; x < maze[y].length; x++) {
+          //if (maze[y][x] == 'S') s += '@';
+          if (maze[y][x]) == '.') s += ' ';
+          else s += maze[y][x];
+        }
+        s += "\n";
+      }
+      return s;
     }
 
 
