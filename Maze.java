@@ -26,25 +26,24 @@ public class Maze{
           Scanner in = new Scanner(text);
           int rows = 0; int cols = 0;
           while(in.hasNextLine()) {
-            //String s = in.nextLine();
+            String s = in.nextLine();
             //maze += s + "\n";
             rows++;
             cols = s.length();
           }
-          charMaze = new char[rows][cols];
+          maze = new char[rows][cols];
           Scanner inC = new Scanner(text);
           int countRow = 0;
           while(inC.hasNextLine()) {
             String s = inC.nextLine();
             for (int i = 0; i < s.length(); i++) {
-              charMaze[countRow][i] = s.charAt(i);
+              maze[countRow][i] = s.charAt(i);
             }
             countRow++;
           }
         } catch(FileNotFoundException e) {
           e.printStackTrace();
         }
-        setAnimate();
     }
 
     private void wait(int millis){
@@ -76,7 +75,7 @@ public class Maze{
       for (int y = 0; y < maze.length; y++) {
         for (int x = 0; x < maze[y].length; x++) {
           //if (maze[y][x] == 'S') s += '@';
-          if (maze[y][x]) == '.') s += ' ';
+          if (maze[y][x] == '.') s += ' ';
           else s += maze[y][x];
         }
         s += "\n";
@@ -90,6 +89,7 @@ public class Maze{
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
     */
     public int solve(){
+      return 1;
             //find the location of the S.
 
             //erase the S
@@ -138,4 +138,4 @@ public class Maze{
   //   }
   //   System.out.print(s);
   // }
-}
+  //}
