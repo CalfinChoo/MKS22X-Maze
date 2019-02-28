@@ -8,12 +8,12 @@ public class Maze{
     try {
       File text = new File("Mazel.txt");
       Scanner in = new Scanner(text);
-      int rows = 0;
-      int cols = 0;
+      int rows = 0; int cols = 0;
       while(in.hasNextLine()) {
         String s = in.nextLine();
         maze += s + "\n";
-        rows++; cols++;
+        rows++;
+        cols = s.length();
       }
       charMaze = new char[rows][cols];
       Scanner inC = new Scanner(text);
@@ -23,7 +23,7 @@ public class Maze{
         for (int i = 0; i < s.length(); i++) {
           charMaze[countRow][i] = s.charAt(i);
         }
-        if (s.length() > 0) countRow++;
+        countRow++;
       }
     } catch(FileNotFoundException e) {
       e.printStackTrace();
