@@ -19,7 +19,7 @@ public class Driver{
         Maze f;
         f = new Maze(filename);//true animates the maze.
 
-        f.setAnimate(true);
+        //f.setAnimate(true);
         int s = f.solve();
         System.out.println("Steps: " + s);
         System.out.println(f);

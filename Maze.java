@@ -101,7 +101,7 @@ public class Maze{
           }
         }
       }
-      return solve(row, col, 1);
+      return solve(row, col, 0);
             //find the location of the S.
 
             //erase the S
